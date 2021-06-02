@@ -7,17 +7,81 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import javax.swing.*;
+
 public class Controller {
+    int vertices;
+    float prob;
+    public boolean isInteger (String s){
+        try{
+            Integer.parseInt(s);
+            return true;
+        }   catch (NumberFormatException e){
+            return false;
+        }
+    }
+
+    public boolean isFloat (String s){
+        try{
+            Float.parseFloat(s);
+            return true;
+        }   catch (NumberFormatException e){
+            return false;
+        }
+    }
+
     @FXML
     private Button GoBack;
+
     @FXML
     private Button nextButton;
 
     @FXML
     private Button execButton;
 
+    @FXML
+    private TextField VerticesID;
+
+    @FXML
+    private TextField probID;
+
+    @FXML
+    private Button enterButton;
+
+    @FXML
+    void getData(ActionEvent event) {
+        String verticestxt = VerticesID.getText();
+        String probtxt = probID.getText();
+        if (verticestxt.isEmpty()) verticestxt = "0";
+        if (probtxt.isEmpty()) probtxt = "0";
+        if (isInteger(verticestxt)){
+            vertices = Integer.parseInt(verticestxt);
+            if (vertices >= 0) {
+                JOptionPane.showMessageDialog(null, "Number of vertices is:" + vertices);
+            } else {
+                JOptionPane.showMessageDialog(null, "Invalid input! Input must be an Integer ");
+                //return false
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Invalid input! Input must be an Integer ");
+            //return false
+        }
+
+        if (isFloat(probtxt)) {
+            prob = Float.parseFloat(probtxt);
+            if (0 <= prob && prob <= 1){
+                JOptionPane.showMessageDialog(null, "Probability is: " + prob);
+            } else {
+                JOptionPane.showMessageDialog(null, "Invalid input! Number must between 0 and 1");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Invalid input! Number must between 0 and 1");
+            //return false
+        }
+    }
     //next step and exec button goes here
     @FXML
     void nextStep(ActionEvent event) {

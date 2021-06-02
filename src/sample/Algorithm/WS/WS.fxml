@@ -20,5 +20,12 @@
       </AnchorPane>
       <Button fx:id="execButton" layoutX="42.0" layoutY="194.0" mnemonicParsing="false" onAction="#execStep" prefHeight="51.0" prefWidth="128.0" text="Exec" />
       <Button fx:id="nextButton" layoutX="42.0" layoutY="128.0" mnemonicParsing="false" onAction="#nextStep" prefHeight="51.0" prefWidth="128.0" text="Next Step" />
+      <Button fx:id="enterButton" layoutX="33.0" layoutY="475.0" mnemonicParsing="false" onAction="#getData" text="Enter" />
+      <Label layoutX="35.0" layoutY="288.0" text="Number of Vertices" />
+      <Label layoutX="33.0" layoutY="347.0" text="Number of Mean Degree" />
+      <TextField fx:id="verticesID" layoutX="35.0" layoutY="309.0" prefHeight="31.0" prefWidth="129.0" promptText="No. of vertices" />
+      <TextField fx:id="kID" layoutX="33.0" layoutY="377.0" prefHeight="31.0" prefWidth="129.0" promptText="No. of K" />
+      <Label layoutX="33.0" layoutY="415.0" text="Number of rewiring prob" />
+      <TextField fx:id="probID" layoutX="33.0" layoutY="436.0" prefHeight="31.0" prefWidth="129.0" promptText="No. of rprob" />
    </children>
 </AnchorPane>
