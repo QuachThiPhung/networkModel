@@ -20,5 +20,8 @@
       </AnchorPane>
       <Button fx:id="execButton" layoutX="42.0" layoutY="194.0" mnemonicParsing="false" onAction="#execStep" prefHeight="51.0" prefWidth="128.0" text="Exec" />
       <Button fx:id="nextButton" layoutX="42.0" layoutY="128.0" mnemonicParsing="false" onAction="#nextStep" prefHeight="51.0" prefWidth="128.0" text="Next Step" />
+      <TextField fx:id="verticesID" layoutX="42.0" layoutY="326.0" prefHeight="31.0" prefWidth="128.0" promptText="No. of vertices" />
+      <Label layoutX="42.0" layoutY="298.0" text="Number of vertices" />
+      <Button fx:id="enterButton" layoutX="42.0" layoutY="374.0" mnemonicParsing="false" onAction="#getData" text="Enter" />
    </children>
 </AnchorPane>

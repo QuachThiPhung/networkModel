@@ -20,5 +20,10 @@
       </AnchorPane>
       <Button fx:id="execButton" layoutX="42.0" layoutY="194.0" mnemonicParsing="false" onAction="#execStep" prefHeight="51.0" prefWidth="128.0" text="Exec" />
       <Button fx:id="nextButton" layoutX="42.0" layoutY="128.0" mnemonicParsing="false" onAction="#nextStep" prefHeight="51.0" prefWidth="128.0" text="Next Step" />
+      <Label layoutX="4.0" layoutY="396.0" text="Probability of edge forming" />
+      <Label layoutX="29.0" layoutY="309.0" text="Number of Vertices" />
+      <TextField fx:id="VerticesID" layoutX="28.0" layoutY="342.0" prefHeight="31.0" prefWidth="135.0" promptText="No. of Vertices" />
+      <TextField fx:id="probID" layoutX="28.0" layoutY="417.0" prefHeight="31.0" prefWidth="135.0" promptText="Prob. of edge forming" />
+      <Button fx:id="enterButton" layoutX="29.0" layoutY="460.0" mnemonicParsing="false" onAction="#getData" text="Enter" />
    </children>
 </AnchorPane>
