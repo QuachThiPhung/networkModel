@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="617.0" prefWidth="862.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Algorithm.BA.Controller">
+   <children>
+      <Button fx:id="GoBack" layoutX="774.0" layoutY="572.0" mnemonicParsing="false" onAction="#Return" text="Go Back" />
+      <AnchorPane layoutX="197.0" layoutY="128.0" prefHeight="458.0" prefWidth="522.0" style="-fx-background-color: #3d4956;" />
+      <AnchorPane layoutX="197.0" layoutY="67.0" prefHeight="51.0" prefWidth="522.0" style="-fx-background-color: #3d4956;">
+         <children>
+            <Label layoutX="8.0" layoutY="4.0" prefHeight="42.0" prefWidth="80.0" text="Graph" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Button fx:id="execButton" layoutX="42.0" layoutY="194.0" mnemonicParsing="false" onAction="#execStep" prefHeight="51.0" prefWidth="128.0" text="Exec" />
+      <Button fx:id="nextButton" layoutX="42.0" layoutY="128.0" mnemonicParsing="false" onAction="#nextStep" prefHeight="51.0" prefWidth="128.0" text="Next Step" />
+   </children>
+</AnchorPane>
