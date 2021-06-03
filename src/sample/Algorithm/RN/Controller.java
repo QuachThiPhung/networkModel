@@ -7,8 +7,10 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.scene.control.TextField;
+import javafx.stage.StageStyle;
 
 import javax.swing.*;
 
@@ -61,14 +63,14 @@ public class Controller {
             //return false;
         }
     }
-    //next step and exec button goes here
+
     @FXML
-    void nextStep(ActionEvent event) {
+    void generate(ActionEvent event){
 
     }
 
     @FXML
-    void execStep(ActionEvent event) {
+    void reset(ActionEvent event){
 
     }
 
@@ -78,8 +80,10 @@ public class Controller {
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("sample/sample.fxml"));
             Scene scene = new Scene(root);
+            scene.setFill(Color.TRANSPARENT);
             Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             stage.setScene(scene);
+            stage.centerOnScreen();
             stage.show();
             scene.getStylesheets().add("sample/style.css");
         }

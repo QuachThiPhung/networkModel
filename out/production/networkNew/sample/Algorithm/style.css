@@ -1,9 +1,14 @@
 .button {
+    width: 148px;
+    height: 51px;
+}
+
+.button {
     -fx-font-veight: bold;
-    -fx-background-color: white;
+    -fx-background-color: #3d4956;
     -fx-background-radius: 22;
     -fx-font-size: 16;
-    -fx-text-fill: #3d4956;
+    -fx-text-fill: white;
 }
 
 .button: hover{
@@ -25,8 +30,4 @@
     -fx-border-radius: 20;
     -fx-borrder-width: 3;
     -fx-rotate: 10;
-}
-
-.root{
-    -fx-background-color: transparent;
 }

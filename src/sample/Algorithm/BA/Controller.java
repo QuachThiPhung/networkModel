@@ -12,14 +12,15 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
-import javafx.scene.Node;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.*;
 
 public class Controller {
-        int vertices;
+        int vCount;
+        BAGraph myGraph = new BAGraph();
         public boolean isInteger (String s){
             try{
                 Integer.parseInt(s);
@@ -43,25 +44,15 @@ public class Controller {
         @FXML
         private Button execButton;
 
-        //next step and exec button goes here
-        @FXML
-        void nextStep(ActionEvent event) {
-
-        }
-
-        @FXML
-        void execStep(ActionEvent event) {
-
-        }
 
         @FXML
         void getData(ActionEvent event) {
             String verticestxt = verticesID.getText();
             if (verticestxt.isEmpty()) verticestxt = "0";
             if (isInteger(verticestxt)) {
-                vertices = Integer.parseInt(verticestxt);
-                if (vertices >= 2) {
-                    JOptionPane.showMessageDialog(null, "Number of vertices is: " + vertices);
+                vCount = Integer.parseInt(verticestxt);
+                if (vCount >= 2) {
+                    JOptionPane.showMessageDialog(null, "Number of vertices is: " + vCount);
                 } else {
                     JOptionPane.showMessageDialog(null, "Invalid input! Input must be an Integer larger than 2");
                     //return false
@@ -78,8 +69,10 @@ public class Controller {
             try {
                 Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("sample/sample.fxml"));
                 Scene scene = new Scene(root);
+                scene.setFill(Color.TRANSPARENT);
                 Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
                 stage.setScene(scene);
+                stage.centerOnScreen();
                 stage.show();
                 scene.getStylesheets().add("sample/style.css");
             }
@@ -100,9 +93,9 @@ public class Controller {
 
         @FXML
         void generate(ActionEvent event) {
-            for (int i = 0; i < vertices; i++){
-                int x = (int)(Math.random()*522);
-                int y = (int)(Math.random()*458);
+            for (int i = 0; i < vCount; i++){
+                int x = (int)(Math.random()*737);
+                int y = (int)(Math.random()*631);
                 Circle circle = new Circle (x,y,2, Color.BLACK);
                 list.add(circle);
                 drawPane.getChildren().add(circle);
@@ -118,8 +111,7 @@ public class Controller {
             for (int i = 0; i < list.size(); i++){
                 drawPane.getChildren().remove(list.get(i));
             }
-            vertices = 0;
+            vCount = 0;
             JOptionPane.showMessageDialog(null, "Successfully removed!");
         }
 }
-

@@ -16,23 +16,23 @@ import java.io.IOException;
 
 public class Main extends Application {
 
-    @Override
-    public void start(Stage stage) throws Exception{
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-            stage.initStyle(StageStyle.TRANSPARENT);
-            Scene scene = new Scene(root);
-            scene.setFill(Color.TRANSPARENT);
-            stage.setScene(scene);
-            stage.show();
-            scene.getStylesheets().add("sample/style.css");
-        }
-        catch (Exception e) {
-        e.printStackTrace();
-    }
-}
+	@Override
+	public void start(Stage stage) throws Exception {
+		try {
+			Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+			stage.initStyle(StageStyle.TRANSPARENT);
+			Scene scene = new Scene(root);
+			scene.setFill(Color.TRANSPARENT);
+			stage.setScene(scene);
+			stage.centerOnScreen();
+			stage.show();
+			scene.getStylesheets().add("sample/style.css");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+	public static void main(String[] args) {
+		launch(args);
+	}
 }

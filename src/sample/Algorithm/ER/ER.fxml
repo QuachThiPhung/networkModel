@@ -5,27 +5,30 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="617.0" prefWidth="862.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Algorithm.ER.Controller">
+<AnchorPane prefHeight="761.0" prefWidth="1117.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Algorithm.ER.Controller">
    <children>
-      <Button fx:id="GoBack" layoutX="774.0" layoutY="572.0" mnemonicParsing="false" onAction="#Return" text="Go Back" />
-      <AnchorPane fx:id="drawPane" layoutX="197.0" layoutY="128.0" prefHeight="458.0" prefWidth="522.0" style="-fx-background-color: #3d4956;" />
-      <AnchorPane layoutX="197.0" layoutY="67.0" prefHeight="51.0" prefWidth="522.0" style="-fx-background-color: #3d4956;">
+      <Button fx:id="GoBack" layoutX="960.0" layoutY="694.0" mnemonicParsing="false" onAction="#Return" prefHeight="51.0" prefWidth="148.0" text="Go Back" />
+      <AnchorPane fx:id="drawPane" layoutX="197.0" layoutY="88.0" prefHeight="631.0" prefWidth="737.0" style="-fx-background-color: #3d4956;" />
+      <AnchorPane layoutX="198.0" layoutY="26.0" prefHeight="46.0" prefWidth="737.0" style="-fx-background-color: #3d4956;">
          <children>
-            <Label layoutX="8.0" layoutY="4.0" prefHeight="42.0" prefWidth="80.0" text="Graph" textFill="WHITE">
+            <Label layoutX="8.0" layoutY="4.0" prefHeight="42.0" prefWidth="268.0" text="Erdos - Renyi Model" textFill="WHITE">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
          </children>
       </AnchorPane>
-      <Button fx:id="execButton" layoutX="42.0" layoutY="194.0" mnemonicParsing="false" onAction="#execStep" prefHeight="51.0" prefWidth="128.0" text="Exec" />
-      <Button fx:id="nextButton" layoutX="42.0" layoutY="128.0" mnemonicParsing="false" onAction="#nextStep" prefHeight="51.0" prefWidth="128.0" text="Next Step" />
-      <Label layoutX="15.0" layoutY="357.0" text="Probability of edge forming" />
-      <Label layoutX="30.0" layoutY="279.0" text="Number of Vertices" />
-      <TextField fx:id="VerticesID" layoutX="27.0" layoutY="309.0" prefHeight="31.0" prefWidth="135.0" promptText="No. of Vertices" />
-      <TextField fx:id="probID" layoutX="27.0" layoutY="391.0" prefHeight="31.0" prefWidth="135.0" promptText="Prob. of edge forming" />
-      <Button fx:id="enterButton" layoutX="27.0" layoutY="436.0" mnemonicParsing="false" onAction="#getData" text="Enter" />
-      <Button fx:id="generateButton" layoutX="30.0" layoutY="477.0" mnemonicParsing="false" onAction="#generate" text="Generate" />
-      <Button fx:id="resetButton" layoutX="30.0" layoutY="523.0" mnemonicParsing="false" onAction="#reset" text="Reset" />
+      <Label layoutX="14.0" layoutY="258.0" text="Edge Forming Probability" />
+      <Label layoutX="26.0" layoutY="157.0" text="Number of Vertices">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <TextField fx:id="VerticesID" layoutX="21.0" layoutY="182.0" prefHeight="31.0" prefWidth="148.0" promptText="Input Number" />
+      <TextField fx:id="probID" layoutX="21.0" layoutY="279.0" prefHeight="31.0" prefWidth="148.0" promptText="Input Number" />
+      <Button fx:id="enterButton" layoutX="14.0" layoutY="473.0" mnemonicParsing="false" onAction="#getData" prefHeight="51.0" prefWidth="148.0" text="Enter" />
+      <Button fx:id="generateButton" layoutX="14.0" layoutY="539.0" mnemonicParsing="false" onAction="#generate" prefHeight="51.0" prefWidth="148.0" text="Generate" />
+      <Button fx:id="resetButton" layoutX="14.0" layoutY="605.0" mnemonicParsing="false" onAction="#reset" prefHeight="51.0" prefWidth="148.0" text="Reset" />
+      <Label layoutX="14.0" layoutY="213.0" text="Conditions: Integer &gt;= 0" />
+      <Label layoutX="14.0" layoutY="310.0" prefHeight="51.0" prefWidth="174.0" text="Conditions: A number between 0 and 1" wrapText="true" />
    </children>
 </AnchorPane>

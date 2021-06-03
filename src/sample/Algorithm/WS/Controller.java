@@ -8,10 +8,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import org.w3c.dom.Text;
 
 import javax.swing.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Controller {
     int k, vertices;
@@ -94,13 +99,42 @@ public class Controller {
         }
     }
 
-    //next step and exec button goes here
-    @FXML
-    void nextStep(ActionEvent event) {
 
-    }
+    //addCircles
     @FXML
-    void execStep(ActionEvent event) {
+    private Circle circle;
+
+    double radius = 300;
+    double centerX = 358;
+    double centerY = 316;
+
+    @FXML
+    private AnchorPane pane;
+
+    @FXML
+    private Button generate;
+
+    List<nodeCircle> list = new ArrayList<>();
+    List<Node> lineList = new ArrayList<>();
+
+    @FXML
+    void generate (ActionEvent Event){
+        for (int i = 0; i < vertices; i++){
+            double angle = 2 * i * Math.PI / vertices;
+            double xOffset = radius * Math.cos(angle);
+            double yOffset = radius * Math.sin(angle);
+            int x = (int)(centerX + xOffset);
+            int y = (int)(centerY + yOffset);
+            Circle point = new Circle(x, y, 4, Color.RED);
+            pane.getChildren().add(point);
+        }
+    }
+
+    @FXML
+    private Button resetButton;
+
+    @FXML
+    void reset (ActionEvent event){
 
     }
 
@@ -110,8 +144,10 @@ public class Controller {
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("sample/sample.fxml"));
             Scene scene = new Scene(root);
+            scene.setFill(Color.TRANSPARENT);
             Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             stage.setScene(scene);
+            stage.centerOnScreen();
             stage.show();
             scene.getStylesheets().add("sample/style.css");
         }

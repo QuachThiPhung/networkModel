@@ -15,9 +15,16 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import javax.swing.*;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+import java.util.logging.Logger;
 
 public class Controller {
+        public ImageView exitButtonImage;
+        Stage stage;
 
         @FXML
         private AnchorPane scenePane;
@@ -28,10 +35,19 @@ public class Controller {
         @FXML
         private AnchorPane backScene1;
 
-        public ImageView exitButtonImage;
+        //Designed exit button
+        @FXML
+        public void exitMenu() {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Exit");
+            alert.setHeaderText("You are about to exit!");
+            if (alert.showAndWait().get() == ButtonType.OK) {
+                stage = (Stage) scenePane.getScene().getWindow();
+                stage.close();
+            }
+        }
 
-        Stage stage;
-
+        //Access to 4 algo scene
         @FXML
         private Button RN;
 
@@ -44,27 +60,6 @@ public class Controller {
         @FXML
         private Button BA;
 
-
-        //Designed exit button
-        @FXML
-        public void exitMenu() {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Logout");
-            alert.setHeaderText("You are about to log out!");
-            alert.setContentText("Do you want to save before exiting");
-
-            if (alert.showAndWait().get() == ButtonType.OK) {
-                stage = (Stage) scenePane.getScene().getWindow();
-                stage.close();
-            }
-        }
-
-        Image buttonPressed = new Image("sample/images/pressedSettings.png");
-        public void pointerDragged(MouseEvent mouseEvent) {
-            exitButtonImage.setImage(buttonPressed);
-    }
-
-        //Access to 4 algo scene
         @FXML
         public void ERscene(ActionEvent event) {
             try {
@@ -73,7 +68,9 @@ public class Controller {
                 Stage RNstage = (Stage) ((Node)event.getSource()).getScene().getWindow();
                 //RNstage.setTitle("RN");
                 RNstage.setScene(RNscene);
+                RNstage.centerOnScreen();
                 RNstage.show();
+                RNscene.getStylesheets().add("sample/Algorithm/style.css");
             }
             catch (Exception e) {
                 e.printStackTrace();
@@ -88,7 +85,9 @@ public class Controller {
                     Stage RNstage = (Stage) ((Node)event.getSource()).getScene().getWindow();
                     //RNstage.setTitle("RN");
                     RNstage.setScene(RNscene);
+                    RNstage.centerOnScreen();
                     RNstage.show();
+                    RNscene.getStylesheets().add("sample/Algorithm/style.css");
                 }
                 catch (Exception e) {
                     e.printStackTrace();
@@ -103,7 +102,9 @@ public class Controller {
                 Stage RNstage = (Stage) ((Node)event.getSource()).getScene().getWindow();
                 //RNstage.setTitle("RN");
                 RNstage.setScene(RNscene);
+                RNstage.centerOnScreen();
                 RNstage.show();
+                RNscene.getStylesheets().add("sample/Algorithm/style.css");
             }
             catch (Exception e) {
                 e.printStackTrace();
@@ -118,7 +119,9 @@ public class Controller {
                 Stage RNstage = (Stage) ((Node)event.getSource()).getScene().getWindow();
                 //RNstage.setTitle("RN");
                 RNstage.setScene(RNscene);
+                RNstage.centerOnScreen();
                 RNstage.show();
+                RNscene.getStylesheets().add("sample/Algorithm/style.css");
             }
             catch (Exception e) {
                 e.printStackTrace();
