@@ -8,7 +8,7 @@
 <AnchorPane prefHeight="617.0" prefWidth="862.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Algorithm.ER.Controller">
    <children>
       <Button fx:id="GoBack" layoutX="774.0" layoutY="572.0" mnemonicParsing="false" onAction="#Return" text="Go Back" />
-      <AnchorPane layoutX="197.0" layoutY="128.0" prefHeight="458.0" prefWidth="522.0" style="-fx-background-color: #3d4956;" />
+      <AnchorPane fx:id="drawPane" layoutX="197.0" layoutY="128.0" prefHeight="458.0" prefWidth="522.0" style="-fx-background-color: #3d4956;" />
       <AnchorPane layoutX="197.0" layoutY="67.0" prefHeight="51.0" prefWidth="522.0" style="-fx-background-color: #3d4956;">
          <children>
             <Label layoutX="8.0" layoutY="4.0" prefHeight="42.0" prefWidth="80.0" text="Graph" textFill="WHITE">
@@ -20,10 +20,12 @@
       </AnchorPane>
       <Button fx:id="execButton" layoutX="42.0" layoutY="194.0" mnemonicParsing="false" onAction="#execStep" prefHeight="51.0" prefWidth="128.0" text="Exec" />
       <Button fx:id="nextButton" layoutX="42.0" layoutY="128.0" mnemonicParsing="false" onAction="#nextStep" prefHeight="51.0" prefWidth="128.0" text="Next Step" />
-      <Label layoutX="4.0" layoutY="396.0" text="Probability of edge forming" />
-      <Label layoutX="29.0" layoutY="309.0" text="Number of Vertices" />
-      <TextField fx:id="VerticesID" layoutX="28.0" layoutY="342.0" prefHeight="31.0" prefWidth="135.0" promptText="No. of Vertices" />
-      <TextField fx:id="probID" layoutX="28.0" layoutY="417.0" prefHeight="31.0" prefWidth="135.0" promptText="Prob. of edge forming" />
-      <Button fx:id="enterButton" layoutX="29.0" layoutY="460.0" mnemonicParsing="false" onAction="#getData" text="Enter" />
+      <Label layoutX="15.0" layoutY="357.0" text="Probability of edge forming" />
+      <Label layoutX="30.0" layoutY="279.0" text="Number of Vertices" />
+      <TextField fx:id="VerticesID" layoutX="27.0" layoutY="309.0" prefHeight="31.0" prefWidth="135.0" promptText="No. of Vertices" />
+      <TextField fx:id="probID" layoutX="27.0" layoutY="391.0" prefHeight="31.0" prefWidth="135.0" promptText="Prob. of edge forming" />
+      <Button fx:id="enterButton" layoutX="27.0" layoutY="436.0" mnemonicParsing="false" onAction="#getData" text="Enter" />
+      <Button fx:id="generateButton" layoutX="30.0" layoutY="477.0" mnemonicParsing="false" onAction="#generate" text="Generate" />
+      <Button fx:id="resetButton" layoutX="30.0" layoutY="523.0" mnemonicParsing="false" onAction="#reset" text="Reset" />
    </children>
 </AnchorPane>

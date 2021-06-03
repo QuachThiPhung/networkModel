@@ -7,8 +7,8 @@
 
 <AnchorPane prefHeight="617.0" prefWidth="862.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Algorithm.BA.Controller">
    <children>
+      <AnchorPane fx:id="drawPane" layoutX="197.0" layoutY="128.0" prefHeight="458.0" prefWidth="522.0" style="-fx-background-color: #3d4956;" />
       <Button fx:id="GoBack" layoutX="774.0" layoutY="572.0" mnemonicParsing="false" onAction="#Return" text="Go Back" />
-      <AnchorPane layoutX="197.0" layoutY="128.0" prefHeight="458.0" prefWidth="522.0" style="-fx-background-color: #3d4956;" />
       <AnchorPane layoutX="197.0" layoutY="67.0" prefHeight="51.0" prefWidth="522.0" style="-fx-background-color: #3d4956;">
          <children>
             <Label layoutX="8.0" layoutY="4.0" prefHeight="42.0" prefWidth="80.0" text="Graph" textFill="WHITE">
@@ -23,5 +23,7 @@
       <TextField fx:id="verticesID" layoutX="42.0" layoutY="326.0" prefHeight="31.0" prefWidth="128.0" promptText="No. of vertices" />
       <Label layoutX="42.0" layoutY="298.0" text="Number of vertices" />
       <Button fx:id="enterButton" layoutX="42.0" layoutY="374.0" mnemonicParsing="false" onAction="#getData" text="Enter" />
+      <Button fx:id="generateButton" layoutX="42.0" layoutY="424.0" mnemonicParsing="false" onAction="#generate" text="Generate" />
+      <Button fx:id="resetButton" layoutX="37.0" layoutY="475.0" mnemonicParsing="false" onAction="#reset" text="Reset" />
    </children>
 </AnchorPane>
