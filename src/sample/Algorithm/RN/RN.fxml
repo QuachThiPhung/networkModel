@@ -17,7 +17,7 @@
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="197.0" layoutY="88.0" prefHeight="631.0" prefWidth="737.0" style="-fx-background-color: #3d4956;" />
+      <AnchorPane fx:id="pane" layoutX="197.0" layoutY="88.0" prefHeight="631.0" prefWidth="737.0" style="-fx-background-color: #3d4956;" />
       <TextField fx:id="nodeID" layoutX="27.0" layoutY="165.0" prefHeight="31.0" prefWidth="139.0" promptText="Input Number" />
       <TextField fx:id="edgeID" layoutX="27.0" layoutY="263.0" prefHeight="31.0" prefWidth="139.0" promptText="Input Number" />
       <Label layoutX="34.0" layoutY="140.0" text="Number of Nodes">

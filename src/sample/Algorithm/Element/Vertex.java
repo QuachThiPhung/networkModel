@@ -17,6 +17,10 @@ public class Vertex {
 	private Circle node;
 	private int degree = 0;
 
+	public int getDegree() {
+		return degree;
+	}
+
 	// Methods
 	public float getX() {
 		return this.x;

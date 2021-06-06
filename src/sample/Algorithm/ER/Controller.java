@@ -18,7 +18,7 @@ import javax.swing.*;
 public class Controller {
 	// variables, constants
 	int vCount;
-	double inputProb;
+	double prob;
 	ERGraph myGraph = new ERGraph();
 
 
@@ -78,9 +78,9 @@ public class Controller {
 		}
 
 		if (isDouble(probtxt)) {
-			inputProb = Double.parseDouble(probtxt);
-			if (0 <= inputProb && inputProb <= 1) {
-				JOptionPane.showMessageDialog(null, "Probability is: " + inputProb);
+			prob = Double.parseDouble(probtxt);
+			if (0 <= prob && prob <= 1) {
+				JOptionPane.showMessageDialog(null, "Probability is: " + prob);
 			} else {
 				JOptionPane.showMessageDialog(null, "Invalid input! Number must between 0 and 1");
 			}
@@ -109,7 +109,7 @@ public class Controller {
 
 	//Create random nodes
 	@FXML
-	private AnchorPane drawPane;
+	private AnchorPane pane;
 
 
 	@FXML
@@ -117,8 +117,8 @@ public class Controller {
 
 	@FXML
 	void generate(ActionEvent event) {
-		myGraph.initGraph(vCount);
-		myGraph.execAlgorithm(drawPane, inputProb);
+		myGraph.initGraph(vCount, pane);
+		myGraph.execAlgorithm(pane, prob);
 	}
 
 	//Reset all nodes
@@ -127,7 +127,7 @@ public class Controller {
 
 	@FXML
 	void reset(ActionEvent event) {
-		myGraph.resetStrategy(drawPane);
+		myGraph.resetStrategy(pane);
 		JOptionPane.showMessageDialog(null, "Successfully removed!");
 	}
 }

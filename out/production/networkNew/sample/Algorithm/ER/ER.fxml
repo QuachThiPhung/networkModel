@@ -8,7 +8,7 @@
 <AnchorPane prefHeight="761.0" prefWidth="1117.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Algorithm.ER.Controller">
    <children>
       <Button fx:id="GoBack" layoutX="960.0" layoutY="694.0" mnemonicParsing="false" onAction="#Return" prefHeight="51.0" prefWidth="148.0" text="Go Back" />
-      <AnchorPane fx:id="drawPane" layoutX="197.0" layoutY="88.0" prefHeight="631.0" prefWidth="737.0" style="-fx-background-color: #3d4956;" />
+      <AnchorPane fx:id="pane" layoutX="197.0" layoutY="88.0" prefHeight="631.0" prefWidth="737.0" style="-fx-background-color: #3d4956;" />
       <AnchorPane layoutX="198.0" layoutY="26.0" prefHeight="46.0" prefWidth="737.0" style="-fx-background-color: #3d4956;">
          <children>
             <Label layoutX="8.0" layoutY="4.0" prefHeight="42.0" prefWidth="268.0" text="Erdos - Renyi Model" textFill="WHITE">

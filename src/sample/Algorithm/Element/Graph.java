@@ -6,9 +6,17 @@ import java.util.List;
 public class Graph {
 	private List<Vertex> vList = new ArrayList<>();
 	private List<Edge> eList = new ArrayList<>();
-	private int vCount = 0;
-	private int eCount = 0;
+	private int initVCount;
 	private int totalDegree = 0;
+
+	public void setTotalDegree(int totalDegree) {
+		this.totalDegree = totalDegree;
+	}
+
+	// Constructor
+	public Graph(int v) {
+		this.initVCount = v;
+	}
 
 	public void addVertex(Vertex v) {
 		vList.add(v);
@@ -18,27 +26,39 @@ public class Graph {
 		eList.add(e);
 	}
 
+	public void removeEdge(Edge e) {
+		if (eList.contains(e)) {
+			eList.remove(e);
+		}
+	}
+
+	public void removeEdge(int id) {
+		if (eList.contains(eList.get(id))) {
+			eList.remove(id);
+		}
+	}
+	
+	public void removeVertex(int idx) {
+		if (idx < vList.size()) {
+			vList.remove(idx);
+		}
+	}
+
 	public void resetGraph() {
 		vList.clear();
 		eList.clear();
-		vCount = 0;
-		eCount = 0;
-	}
-
-	public Graph(int vCount) {
-		this.vCount = vCount;
 	}
 
 	public int getVCount() {
-		return vCount;
+		return vList.size();
 	}
 
 	public int getECount() {
-		return eCount;
+		return eList.size();
 	}
 
-	public void setECount(int n) {
-		eCount = n;
+	public int getInitVCount() {
+		return initVCount;
 	}
 
 	public int getTotalDegree() {

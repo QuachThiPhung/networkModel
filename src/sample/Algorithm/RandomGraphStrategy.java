@@ -6,10 +6,11 @@ import sample.Algorithm.Element.Graph;
 public abstract class RandomGraphStrategy {
 	private Graph graph;
 	private float prob;
-	public final int SEED_X = 522;
-	public final int SEED_Y = 458;
+	private int numRNedges;
+	public final int SEED_X = 737;
+	public final int SEED_Y = 631;
 	// abstract methods
-	public abstract void initGraph(int vCount);
+	public abstract void initGraph(int vCount, AnchorPane pane) throws InterruptedException;
 	public abstract void execAlgorithm(AnchorPane pane, double prob);
 
 	// regular methods
@@ -41,4 +42,5 @@ public abstract class RandomGraphStrategy {
 	public void setGraph(Graph graph) {
 		this.graph = graph;
 	}
+
 }

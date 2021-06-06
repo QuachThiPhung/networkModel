@@ -7,10 +7,12 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.scene.control.TextField;
 import javafx.stage.StageStyle;
+import sample.Algorithm.BA.BAGraph;
 
 import javax.swing.*;
 
@@ -57,7 +59,13 @@ public class Controller {
         }
         if (isInteger(edgetxt)) {
             edge = Integer.parseInt(edgetxt);
-            JOptionPane.showMessageDialog(null, "Edge input is: " + edge);
+            if (edge > node * (node-1) / 2) {
+                JOptionPane.showMessageDialog(null, "Invalid Edge Input! Edge input must be smaller than total edge");
+                //return false;
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Edge input is: " + edge);
+            }
         } else {
             JOptionPane.showMessageDialog(null, "Invalid Edge Input! Input must be an integer");
             //return false;
@@ -65,13 +73,22 @@ public class Controller {
     }
 
     @FXML
-    void generate(ActionEvent event){
+    private AnchorPane pane;
 
+    RNGraph myGraph = new RNGraph();
+
+    Double edgeDouble;
+    @FXML
+    void generate(ActionEvent event){
+        edgeDouble = Double.valueOf(edge);
+        myGraph.initGraph(node, pane);
+        myGraph.execAlgorithm(pane, edgeDouble);
     }
 
     @FXML
     void reset(ActionEvent event){
-
+        myGraph.resetStrategy(pane);
+        JOptionPane.showMessageDialog(null, "Successfully removed!");
     }
 
     //return to main scene

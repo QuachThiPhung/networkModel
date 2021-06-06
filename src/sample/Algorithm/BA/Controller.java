@@ -91,15 +91,10 @@ public class Controller {
         @FXML
         private Button generateButton;
 
+        BAGraph newGraph = new BAGraph();
         @FXML
         void generate(ActionEvent event) {
-            for (int i = 0; i < vCount; i++){
-                int x = (int)(Math.random()*737);
-                int y = (int)(Math.random()*631);
-                Circle circle = new Circle (x,y,2, Color.BLACK);
-                list.add(circle);
-                drawPane.getChildren().add(circle);
-            }
+            newGraph.execAlgorithm(drawPane, vCount);
         }
 
         //Reset all nodes

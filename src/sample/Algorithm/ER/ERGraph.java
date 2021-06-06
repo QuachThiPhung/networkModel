@@ -9,21 +9,22 @@ import sample.Algorithm.RandomGraphStrategy;
 public class ERGraph extends RandomGraphStrategy {
 
 	@Override
-	public void initGraph(int vCount) {
+	public void initGraph(int vCount, AnchorPane pane) {
 		setGraph(new Graph(vCount));
-	}
-
-	@Override
-	public void execAlgorithm(AnchorPane pane, double prob) {
+		int V = getGraph().getInitVCount();
 		float x, y;
 		// generate vertices
-		for (int i = 0; i < getGraph().getVCount(); i++) {
+		for (int i = 0; i < V; i++) {
 			x = (float) (Math.random() * SEED_X + 1);
 			y = (float) (Math.random() * SEED_Y + 1);
 			Vertex newNode = new Vertex(x, y);
 			getGraph().addVertex(newNode);
 			pane.getChildren().add(newNode.getNode());
 		}
+	}
+
+	@Override
+	public void execAlgorithm(AnchorPane pane, double prob) {
 		// generate edges
 		for (int i = 0; i < getGraph().getVCount() - 1; i++) {
 			for (int j = i + 1; j < getGraph().getVCount(); j++) {
@@ -33,7 +34,6 @@ public class ERGraph extends RandomGraphStrategy {
 					newEdge.draw(getGraph().getVList().get(i), getGraph().getVList().get(j));
 					pane.getChildren().add(newEdge.getEdge());
 					getGraph().addEdge(newEdge);
-					getGraph().setECount(getGraph().getECount() + 1);
 				}
 			}
 		}
