@@ -9,12 +9,14 @@ public abstract class RandomGraphStrategy {
 	private int numRNedges;
 	public final int SEED_X = 737;
 	public final int SEED_Y = 631;
+
 	// abstract methods
 	public abstract void initGraph(int vCount, AnchorPane pane) throws InterruptedException;
+
 	public abstract void execAlgorithm(AnchorPane pane, double prob);
 
 	// regular methods
-	public void resetStrategy(AnchorPane pane){
+	public void resetStrategy(AnchorPane pane) {
 		// Remove vertices
 		for (int i = 0; i < this.graph.getVCount(); i++) {
 			pane.getChildren().remove(graph.getVList().get(i).getNode());
@@ -25,7 +27,9 @@ public abstract class RandomGraphStrategy {
 		}
 		// Clear graph class
 		this.graph.resetGraph();
-	};
+	}
+
+	;
 
 	public Graph getGraph() {
 		return this.graph;
@@ -42,5 +46,4 @@ public abstract class RandomGraphStrategy {
 	public void setGraph(Graph graph) {
 		this.graph = graph;
 	}
-
 }

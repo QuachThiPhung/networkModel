@@ -1,6 +1,9 @@
 package sample.Algorithm.ER;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
 import sample.Algorithm.Element.Edge;
 import sample.Algorithm.Element.Graph;
 import sample.Algorithm.Element.Vertex;
@@ -25,18 +28,26 @@ public class ERGraph extends RandomGraphStrategy {
 
 	@Override
 	public void execAlgorithm(AnchorPane pane, double prob) {
+
 		// generate edges
-		for (int i = 0; i < getGraph().getVCount() - 1; i++) {
-			for (int j = i + 1; j < getGraph().getVCount(); j++) {
+		int V = getGraph().getVCount();
+		final int[] i = {0};
+		final Timeline timeline = new Timeline();
+		timeline.setCycleCount(V - 1);
+		timeline.setDelay(Duration.millis(350));
+		timeline.getKeyFrames().add(new KeyFrame(Duration.millis(300), actionEvent -> {
+			for (int j = i[0] + 1; j < getGraph().getVCount(); j++) {
 				double probRandom = Math.random();
 				if (probRandom <= prob) {
 					Edge newEdge = new Edge();
-					newEdge.draw(getGraph().getVList().get(i), getGraph().getVList().get(j));
+					newEdge.draw(getGraph().getVList().get(i[0]), getGraph().getVList().get(j));
 					pane.getChildren().add(newEdge.getEdge());
 					getGraph().addEdge(newEdge);
 				}
 			}
-		}
+			i[0]++;
+		}));
+		timeline.play();
 	}
 
 }

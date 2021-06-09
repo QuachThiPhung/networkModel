@@ -9,10 +9,6 @@ public class Graph {
 	private int initVCount;
 	private int totalDegree = 0;
 
-	public void setTotalDegree(int totalDegree) {
-		this.totalDegree = totalDegree;
-	}
-
 	// Constructor
 	public Graph(int v) {
 		this.initVCount = v;
@@ -33,11 +29,12 @@ public class Graph {
 	}
 
 	public void removeEdge(int id) {
-		if (eList.contains(eList.get(id))) {
+		if (id < eList.size()) {
 			eList.remove(id);
 		}
 	}
-	
+
+
 	public void removeVertex(int idx) {
 		if (idx < vList.size()) {
 			vList.remove(idx);
@@ -65,11 +62,23 @@ public class Graph {
 		return totalDegree;
 	}
 
+	public void setTotalDegree(int totalDegree) {
+		this.totalDegree = totalDegree;
+	}
+
+	public void incrementDeg() {
+		totalDegree += 2;
+	}
+
 	public List<Vertex> getVList() {
 		return vList;
 	}
 
 	public List<Edge> getEList() {
 		return eList;
+	}
+
+	public float handleCalcProbDeg(Vertex v, int excludedDeg, int connected) {
+		return ((float) v.getDegree() / ((float) totalDegree - (float) connected - (float) excludedDeg));
 	}
 }

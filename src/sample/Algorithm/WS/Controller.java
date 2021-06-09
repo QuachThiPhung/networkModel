@@ -50,8 +50,7 @@ public class Controller {
 	private TextField kID;
 	@FXML
 	private TextField verticesID;
-	@FXML
-	private Button generateButton;
+
 	@FXML
 	void getData(ActionEvent event) {
 		String verticestxt = verticesID.getText();
@@ -100,7 +99,6 @@ public class Controller {
 			JOptionPane.showMessageDialog(null, "Invalid input! Number must between 0 and 1");
 			//return false
 		}
-		generateButton.setDisable(true);
 	}
 
 
@@ -117,10 +115,12 @@ public class Controller {
 
 	@FXML
 	void setUp(ActionEvent Event) throws InterruptedException {
-			myGraph.setK(k);
-			myGraph.initGraph(vCount, pane);
-			generateButton.setDisable(false);
+		myGraph.setK(k);
+		myGraph.initGraph(vCount, pane);
 	}
+
+	@FXML
+	private Button generate;
 
 	@FXML
 	void generate(ActionEvent Event) {
