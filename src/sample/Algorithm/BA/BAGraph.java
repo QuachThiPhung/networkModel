@@ -2,6 +2,8 @@ package sample.Algorithm.BA;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 import sample.Algorithm.Element.Edge;
@@ -9,7 +11,10 @@ import sample.Algorithm.Element.Graph;
 import sample.Algorithm.Element.Vertex;
 import sample.Algorithm.RandomGraphStrategy;
 
+import java.awt.*;
+
 public class BAGraph extends RandomGraphStrategy {
+	private int maxDegree = 0;
 
 	@Override
 	public void initGraph(int vCount, AnchorPane pane) {
@@ -47,9 +52,9 @@ public class BAGraph extends RandomGraphStrategy {
 
 		final int[] i = {0};
 		final Timeline timeline = new Timeline();
+		setInterval(V);
 		timeline.setCycleCount(V - 2);
-		timeline.setDelay(Duration.millis(350));
-		timeline.getKeyFrames().add(new KeyFrame(Duration.millis(600), actionEvent -> {
+		timeline.getKeyFrames().add(new KeyFrame(Duration.millis(interval), actionEvent -> {
 			x[0] = (float) (Math.random() * SEED_X + 1);
 			y[0] = (float) (Math.random() * SEED_Y + 1);
 			Vertex newNode = new Vertex(x[0], y[0]);
@@ -106,5 +111,28 @@ public class BAGraph extends RandomGraphStrategy {
 			}
 		}));
 		timeline.play();
+	}
+
+	@Override
+	protected void setInterval(int V) {
+		if (V >= 40) {
+			this.interval = 350;
+		} else if (V >= 20) {
+			this.interval = 500;
+		} else if (V >= 8) {
+			this.interval = 700;
+		} else {
+			this.interval = 1000;
+		}
+	}
+	@FXML
+	public void logRes(TextField maxDeg, TextField avgDeg) {
+		int V = getGraph().getVCount();
+		for (int i = 0; i < getGraph().getVCount(); i++) {
+			int d = getGraph().getVList().get(i).getDegree();
+			maxDegree = (maxDegree > d) ? maxDegree : d;
+		}
+		maxDeg.setText(String.valueOf(maxDegree));
+		avgDeg.setText(String.valueOf((float) getGraph().getTotalDegree() / (float) V));
 	}
 }
